@@ -69,8 +69,48 @@ function stats () {
 	var statsSection = document.createElement('div');
 	statsSection.setAttribute('id', 'stats');
 	statsSection.setAttribute('class', 'stats-section');
-	statsSection.innerHTML = 'Aqui van Estadisticas';
+	var contDropout = 0;
+	var contAchievement = 0;
+	for (var k = 0; k < data[sede][generationSelected].students.length; k++) {
+		if(data[sede][generationSelected].students[k].active == false) {
+			contDropout++;
+		}
+		if(data[sede][generationSelected].students[k].active == true) {
+			for (var l = 0; l < data[sede][generationSelected].students[k].sprints.length; l++) {
+				if (data[sede][generationSelected].students[k].sprints[l].score.hse > 840 && data[sede][generationSelected].students[k].sprints[l].score.tech > 1260) {
+						contAchievement++; 
+				}
+			}
+		} 
+	}
+	var dropout = ((contDropout/data[sede][generationSelected].students.length)*100).toFixed(1);
+	var achievement = ((contAchievement/data[sede][generationSelected].students.length)*100).toFixed(1);
+	// Net Promoter Score
+	var totalDetractors = 0;
+	var totalPassive = 0;
+	var totalPromoters = 0;
+	var totalSupera = 0;
+	var totalCumple = 0;
+	for (var m = 0; m < data[sede][generationSelected].ratings.length; m++) {
+		totalDetractors += data[sede][generationSelected].ratings[m].nps.detractors; 
+		totalPassive += data[sede][generationSelected].ratings[m].nps.passive;
+		totalPromoters += data[sede][generationSelected].ratings[m].nps.promoters;
+		// Supera la meta
+		// * Ver como generar options y desplegar toda la info modificando display
+		/*totalSupera += data[sede][generationSelected].ratings[m].student.supera;
+		totalCumple += data[sede][generationSelected].ratings[m].student.cumple; */
+	}
+	var detractors = ((totalDetractors/data[sede][generationSelected].ratings.length)/100 * 100).toFixed(1); 
+	var passive = ((totalPassive/data[sede][generationSelected].ratings.length)/100 * 100).toFixed(1);
+	var promoters = ((totalPromoters/data[sede][generationSelected].ratings.length)/100 * 100).toFixed(1);
+	var cumulativeNps = promoters - detractors;
+	var promedioSupera = parseInt((totalSupera/data[sede][generationSelected].ratings.length)/100 * 100);
+	// El % que cumple lo objetivos = supera + cumple
+	
+	statsSection.innerHTML = '<p>Dropout = ' + dropout + '% del total</p>'+'<p>El numero de inscritas es: ' + data[sede][generationSelected].students.length + '</p>' + 'El numero de estudiantes que supera el 70% es ' + contAchievement + ', que corresponde a un ' + achievement + '% del total</p>' + detractors + ' ' + cumulativeNps;
 	mainSection.appendChild(statsSection);
+
+
 
 	// SECCION ESTUDIANTES
 	var studentSection = document.createElement('div');
