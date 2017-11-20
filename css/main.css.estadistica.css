@@ -1,0 +1,333 @@
+/*
+ * Estilos de tu proyecto
+ */
+*{
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+body{
+    font-family: 'Montserrat';
+    font-size: 13px;
+    width: 100%;
+    background-color: #F7F7F7;
+}
+
+header{
+	background: #E1E1E1;
+}
+nav{
+	width:90%;
+	margin: 0 auto;
+	padding-top: 15px;
+	height: 80px;
+}
+
+nav ul li{
+	display: inline-block;
+	list-style: none;
+	color: #2B2B2B;
+	font-style: bold;
+}
+
+nav ul li a{
+	color: #212121;
+	text-decoration: none;
+	padding: 5px;
+	border-bottom: 5px solid #E1E1E1;
+	font-weight: 800;
+}
+
+nav ul li a.activo{
+	border-bottom: 5px solid #F7B617;
+}
+
+/***----------------INICIO OVERVIEW------------***/
+.desplegable{
+	padding-bottom: 15px;
+}
+.desplegable a.botonDesplegable{
+	color: #212121;
+	font-weight: bold;
+	font-size: 20px;
+	text-decoration: none;
+}
+.contenedor{
+	width:90%;
+	margin: 0 auto;
+}
+
+.contenido{
+	display: none;
+	-webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+/***********INICIO DATOS CONTENIDO*********/
+.caja{
+	display: inline-block;
+	width: 30.5%;
+	margin: 0 auto;
+	vertical-align: top;
+	background: white;
+	padding: 15px;
+	overflow: hidden;
+}
+
+.tabla {
+	border-spacing:3px;
+    display: table;
+    width: 100%;
+}
+
+.fila {
+	background: #E1E1E1;
+    display: table-cell;
+    text-align: center;
+    width: 50%;
+}
+
+span.numero, span.detalle{
+	display: block;
+	padding-top: 5px;
+}
+span.numero{
+	font-weight: bold;
+	vertical-align: middle;
+}
+span.detalle{
+	padding-bottom: 5px;
+}
+
+span.rojo{
+	color: red;
+}
+span.verde{
+	color: green;
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+/***********FIN DATOS CONTENIDO*********/
+
+/****GRAFICA****/
+.chart {
+  width: 100%; 
+  min-height: 20vh;
+}
+
+/****INCIO MENU DESPLEGABLE****/
+.desplegable {
+    position: relative;
+    display: inline-block;
+}
+
+.desplegable-contenido, .desplegable-contenidoTs, .desplegable-contenidoLs {
+    display: none;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.desplegable-contenido a, .desplegable-contenidoTs a, .desplegable-contenidoLs a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.desplegable a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+/****FIN MENU DESPLEGABLE****/
+
+/****INCIO SUB MENU****/
+.submenu{
+	padding: 10px;
+}
+.submenu p {
+	border-bottom: 2px solid #F7B617;
+	margin-bottom: 10px;
+}
+.submenu ul li{
+	display: block;
+	list-style: none;
+}
+.miCheck {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.miCheck input {
+    position: absolute;
+    opacity: 0;
+}
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+    border: 1.5px solid #F7B617;
+}
+.miCheck:hover input ~ .checkmark {
+    background-color: #F7B617;
+}
+.miCheck input:checked ~ .checkmark {
+    background-color: #F7B617;
+}
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.miCheck input:checked ~ .checkmark:after {
+    display: block;
+}
+/****FIN SUB MENU****/
+
+/***********INCIO BLOQUES*********/
+.bloque1, .bloque2, .bloque3, .bloque4{
+	padding-top: 30px;
+	padding-bottom: : 20px;
+	overflow: hidden;
+}
+
+.bloque2 .cajagrande, .bloque3 .cajagrande{
+	background: white;
+	width: 100%;
+	padding: 15px;
+	overflow: hidden;
+}
+.bloque2 .cajagrande a, .bloque3 .cajagrande a{
+	color: #212121;
+	font-weight: bold;
+	font-size: 16px;
+	padding-bottom: 15px;
+	text-decoration: none;
+}
+.bloque2 .tabla, .bloque3 .tabla{
+	width: 40%
+}
+/*********DIV GRAFICAS DE BLOQUES*******/
+#tpiechartb, #lpiechartb{
+	width: 59%;
+}
+#tpiechartc, #lpiechartc{
+	width: 40%;
+}
+#tpiechartb, #tpiechartc{
+	display: inline-block;
+}
+
+#lpiechartb, #lpiechartc{
+	display: inline-block;
+}
+.bloque4 .caja .c2{
+	background: white;
+}
+/***********FIN BLOQUES*********/
+
+/***----------------FIN OVERVIEW------------***/
+
+/***----------------INICIO STUDENTS------------***/
+#student{
+	margin: 0 auto;
+	margin-top: 30px;
+}
+#especializacion{
+	background: white;
+	width: 30%;
+	padding: 15px;
+}
+#especializacion p {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+#especializacion ul li{
+	display: block;
+	list-style: none;
+}
+#estudiantes {
+	width: 67%;
+}
+#especializacion, #estudiantes {
+	display: inline-block;
+	vertical-align: top;
+}
+input#buscar{
+	background: white;
+	border-radius: 5px;
+	width: 100%;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border: 1px solid 3212121;
+}
+
+.estudiante img{
+	float: left;
+	width: 13%;
+	height: : 13vh;
+	margin: 10px; 
+}
+.estudiante{
+	background: white;
+	margin-top: 10px;
+	overflow: hidden;
+}
+
+.estudiante .general{
+	width: 84%;
+	float: right;
+}
+.datos{
+	float: left;
+}
+.skills{
+	float: right;
+	margin: 10px;
+}
+.datos h2, .datos span {
+	display: block;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+.datos button{
+	padding: 3px;
+}
+.skills{
+	display: table;
+	border-spacing: 2px 0px;
+}
+.skills span{
+	display: table-cell;
+	text-align: center;
+	background: #aeaeae;
+	padding: 5px;
+}
+
+.estudiante a{
+	float: right;
+	padding-right: 10px;
+	text-decoration: none;
+	color: #212121;
+}
+/***----------------FIN STUDENTS---------------***/

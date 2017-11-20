@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Data-Dashboard</title>
+	<link rel="stylesheet" href="css/main.css">
+	<link href='//fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800' 
+rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="js/app.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+			<div class="desplegable">
+				<a href="javascript:;" class="botonDesplegable" onclick="mostrarMenu()">SANTIAGO DE CHILE 2017 - II &nbsp;&blacktriangledown;</a>
+				<div id="menuDesplegable" class="desplegable-contenido">
+					<div class="submenu">
+						<p>
+							<label class="miCheck">LIMA
+								<input type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+						</p>
+						<ul>
+							<li>
+								<label class="miCheck">2015 - I
+									<input type="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="miCheck">2015 - II
+									<input type="checkbox"><span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="miCheck">2016 - I
+									<input type="checkbox"><span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="miCheck">2016 - II
+									<input type="checkbox"><span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="miCheck">2017 - I
+									<input type="checkbox"><span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="miCheck">2017 - II
+									<input type="checkbox"><span class="checkmark"></span>
+								</label>
+							</li>
+						</ul><br>
+						<p>
+							<label class="miCheck">AREQUIPA
+								<input type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+						</p>
+						<ul>
+							<li>
+								<label class="miCheck">2015 - I
+									<input type="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="miCheck">2016 - I
+									<input type="checkbox"><span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="miCheck">2016 - II
+									<input type="checkbox"><span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="miCheck">2017 - I
+									<input type="checkbox"><span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="miCheck">2017 - II
+									<input type="checkbox"><span class="checkmark"></span>
+								</label>
+							</li>
+						</ul><br>
+						<p>
+							<label class="miCheck">SANTIAGO DE CHILE
+								<input type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+						</p>
+						<ul>
+							<li>
+								<label class="miCheck">2015 - I
+									<input type="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="miCheck">2016 - I
+									<input type="checkbox"><span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="miCheck">2016 - II
+									<input type="checkbox"><span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="miCheck">2017 - I
+									<input type="checkbox"><span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="miCheck">2017 - II
+									<input type="checkbox" checked="checked"><span class="checkmark"></span>
+								</label>
+							</li>
+						</ul><br>
+						<p>
+							<label class="miCheck">CIUDAD DE MÉXICO
+								<input type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+						</p>
+						<ul>
+							<li>
+								<label class="miCheck">2015 - I
+									<input type="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="miCheck">2016 - I
+									<input type="checkbox"><span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="miCheck">2016 - II
+									<input type="checkbox"><span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="miCheck">2017 - I
+									<input type="checkbox"><span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="miCheck">2017 - II
+									<input type="checkbox"><span class="checkmark"></span>
+								</label>
+							</li>
+						</ul>
+					</div>
+				    <!-- <a href="#home">Home</a>
+				    <a href="#about">About</a>
+				    <a href="#contact">Contact</a> -->
+				</div>
+			</div>
+			<div class="menu">
+				<ul>
+					<li><a href="#" class="enlace" onclick="cambiaTabs(event, 'overview')" id="porDefecto">OVERVIEW</a></li>
+					<li><a href="#" class="enlace" onclick="cambiaTabs(event, 'student')">STUDENTS</a></li>
+					<li><a href="#" class="enlace" onclick="cambiaTabs(event, 'teachers')">TEACHERS</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<section>
+		<div class="contenedor">
+			<div id="overview" class="contenido box">
+				<div class="bloque1">
+					<div class="caja">
+						<h2>ENROLLMENT</h2>
+						<div class="tabla">
+							<p class="fila c1">
+								<span class="numero">120</span>
+								<span class="detalle"># STUDENTS CURRENTLEY ENROLLED</span>
+							</p>
+							<p class="fila c2">
+								<span class="numero rojo">20%</span>
+								<span class="detalle">% DROPOUT</span>
+							</p>
+						</div>
+						<div id="epiechart" class="chart"></div>
+					</div>
+					<div class="caja">
+						<h2>ACHIEVEMENT</h2>
+						<div class="tabla">
+							<p class="fila c1">
+								<span class="numero">105</span>
+								<span class="detalle"># STUDENTS THAT MEET THE TARGET</span>
+							</p>
+							<p class="fila c2">
+								<span class="numero verde">78%</span>
+								<span class="detalle">% OF TOTAL (135)</span>
+							</p>
+						</div>
+						<div id="apiechart" class="chart"></div>
+					</div>
+					<div class="caja">
+						<h2>NET PROMOTER SCORE</h2>
+						<div class="tabla">
+							<p class="fila c1">
+								<span class="numero verde">78%</span>
+								<span class="detalle"># CUMULATIVE NPS</span>
+							</p>
+							<p class="fila c2">
+								<span class="detalle">60 % Promoters<br>30 % Passive<br>10 % Detractors</span>
+							</p>
+						</div>
+						<div id="npiechart" class="chart"></div>
+					</div>
+				</div>
+				<div class="bloque2">
+					<div class="cajagrande">
+						<a href="javascript:;" class="botonDesplegableTs" onclick="mostrarMenuTs()">TECH SKILLS overall (cumulative) &nbsp;&blacktriangledown;</a>
+						<div id="menuDesplegableTs" class="desplegable-contenidoTs">
+						<div class="submenu">
+							<p>
+								<label class="miCheck">COMMON CORE
+									<input type="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</p>
+							<ul>
+								<li>
+									<label class="miCheck">Sprint 1: Create an interactive site
+										<input type="checkbox">
+										<span class="checkmark"></span>
+									</label>
+								</li>
+								<li>
+									<label class="miCheck">Sprint 2: Create an interactive site
+										<input type="checkbox"><span class="checkmark"></span>
+									</label>
+								</li>
+								<li>
+									<label class="miCheck">Sprint 3: Create an interactive site
+										<input type="checkbox"><span class="checkmark"></span>
+									</label>
+								</li>
+								<li>
+									<label class="miCheck">Sprint 4: Create an interactive site
+										<input type="checkbox"><span class="checkmark"></span>
+									</label>
+								</li>
+							</ul><br>
+							<p>
+								<label class="miCheck">Javascript
+									<input type="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</p>
+							<ul>
+								<li>
+									<label class="miCheck">Sprint 5: Create an interactive site
+										<input type="checkbox">
+										<span class="checkmark"></span>
+									</label>
+								</li>
+								<li>
+									<label class="miCheck">Sprint 6: Create an interactive site
+										<input type="checkbox"><span class="checkmark"></span>
+									</label>
+								</li>
+								<li>
+									<label class="miCheck">Sprint 7: Create an interactive site
+										<input type="checkbox"><span class="checkmark"></span>
+									</label>
+								</li>
+								<li>
+									<label class="miCheck">Sprint 8: Create an interactive site
+										<input type="checkbox"><span class="checkmark"></span>
+									</label>
+								</li>
+							</ul><br>
+							<p>
+								<label class="miCheck">UX Design
+									<input type="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</p>
+							<ul>
+								<li>
+									<label class="miCheck">Sprint 5: Create an interactive site
+										<input type="checkbox">
+										<span class="checkmark"></span>
+									</label>
+								</li>
+								<li>
+									<label class="miCheck">Sprint 6: Create an interactive site
+										<input type="checkbox"><span class="checkmark"></span>
+									</label>
+								</li>
+								<li>
+									<label class="miCheck">Sprint 7: Create an interactive site
+										<input type="checkbox"><span class="checkmark"></span>
+									</label>
+								</li>
+								<li>
+									<label class="miCheck">Sprint 8: Create an interactive site
+										<input type="checkbox"><span class="checkmark"></span>
+									</label>
+								</li>
+							</ul>
+						</div>
+					</div>
+						<div class="tabla">
+							<p class="fila c1">
+								<span class="numero">90</span>
+								<span class="detalle"># STUDENTS THAT MEET THE TARGET</span>
+							</p>
+							<p class="fila c2">
+								<span class="numero rojo">62%</span>
+								<span class="detalle">% OF TOTAL (135)</span>
+							</p>
+						</div>
+						<div id="tpiechartb" class="chart"></div>
+						<div id="tpiechartc" class="chart"></div>
+					</div>
+				</div>
+				<div class="bloque3">
+					<div class="cajagrande">
+						<a href="javascript:;" class="botonDesplegableLs" onclick="mostrarMenuLs()">LIFE SKILLS latest Sprint (S4) &nbsp;&blacktriangledown;</a>
+						<div id="menuDesplegableLs" class="desplegable-contenidoLs">
+						<div class="submenu">
+							<p>
+								<label class="miCheck">HSE
+									<input type="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</p>
+							<ul>
+								<li>
+									<label class="miCheck">Sprint 1: Create an interactive site
+										<input type="checkbox">
+										<span class="checkmark"></span>
+									</label>
+								</li>
+								<li>
+									<label class="miCheck">Sprint 2: Create an interactive site
+										<input type="checkbox"><span class="checkmark"></span>
+									</label>
+								</li>
+								<li>
+									<label class="miCheck">Sprint 3: Create an interactive site
+										<input type="checkbox"><span class="checkmark"></span>
+									</label>
+								</li>
+								<li>
+									<label class="miCheck">Sprint 4: Create an interactive site
+										<input type="checkbox"><span class="checkmark"></span>
+									</label>
+								</li>
+							</ul>
+						</div>
+					</div>
+						<div class="tabla">
+							<p class="fila c1">
+								<span class="numero">80</span>
+								<span class="detalle"># OVERALL CLASS AVERAGE</span>
+							</p>
+							<p class="fila c2">
+								<span class="numero rojo">62%</span>
+								<span class="detalle">% OF STUDENTS THAT MEET THE TARGET</span>
+							</p>
+						</div>
+						<div id="lpiechartb" class="chart"></div>
+						<div id="lpiechartc" class="chart"></div>
+					</div>
+				</div>
+				<div class="bloque4">
+					<div class="caja">
+						<h2>STUDENT SATISFACTION</h2>
+						<div class="tabla">
+							<p class="fila c1">
+								<span class="numero">140</span>
+								<span class="detalle"># MEETING OR EXCEEDING EXPECTATIONS (CUMULATIVE)</span>
+							</p>
+						</div>
+						<div id="sspiechart" class="chart"></div>
+					</div>
+					<div class="caja">
+						<h2>TEACHER RATING</h2>
+						<div class="tabla">
+							<p class="fila c1">
+								<span class="numero">4.2</span>
+								<span class="detalle">OVERALL TEACHER RATING (CUMULATIVE)</span>
+							</p>
+							<p class="fila c2">
+								<!-- No muestra nada, solo un espacio en blanao -->
+								&nbsp;
+							</p>
+						</div>
+						<div id="trpiechart" class="chart"></div>
+					</div>
+					<div class="caja">
+						<h2>JEDI MASTER RATING</h2>
+						<div class="tabla">
+							<p class="fila c1">
+								<span class="numero verde">50 </span>
+								<span class="detalle">OVERALL JEDI RATING (CUMULATIVE)</span>
+							</p>
+							<p class="fila c2">
+								<!-- No muestra nada, solo un espacio en blanao -->
+								&nbsp;
+							</p>
+						</div>
+						<div id="jmpiechart" class="chart"></div>
+					</div>
+				</div>
+			</div>
+			<div id="student" class="contenido">
+				<div id="especializacion">
+					<p>SPECIALIZATION:</p>
+					<ul>
+						<li>
+							<label class="miCheck">Javascript
+								<input type="checkbox">
+								<span class="checkmark"></span>
+							</label>
+						</li>
+						<li>
+							<label class="miCheck">UX Design
+								<input type="checkbox"><span class="checkmark"></span>
+							</label>
+						</li>
+						<li>
+							<label class="miCheck">Frontend Designer
+								<input type="checkbox" checked="checked"><span class="checkmark"></span>
+							</label>
+						</li>
+					</ul>
+				</div>
+				<div id="estudiantes">
+					<input type="text" id="buscar">
+					<div class="estudiante">
+						<img src="assets/estudiante.jpg" alt="">
+						<div class="general">
+							<div class="datos">
+								<h2>DIANA NAVARRO</h2>
+								<span>Frontend Developer</span>
+								<button type="button">JAVASCRIPT</button>
+								<button type="button">APIs</button>
+								<button type="button">JQUERY</button>
+							</div>
+							<div class="skills">
+								<span>
+									<strong>95.6%</strong>
+									<p>TECH SKILLS</p>
+								</span>
+								<span>
+									<strong>95.6%</strong>
+									<p>LIFE SKILLS</p>
+								</span>
+								<span>
+									<strong>INTERM</strong>
+									<p>ENGLISH SKILLS</p>
+								</span>
+							</div>
+						</div>
+						<div>
+							<a href="#">Ver perfil &blacktriangleright;</a>
+						</div>
+					</div>
+					<div class="estudiante">
+						<img src="assets/estudiante.jpg" alt="">
+						<div class="general">
+							<div class="datos">
+								<h2>DIANA NAVARRO</h2>
+								<span>Frontend Developer</span>
+								<button type="button">JAVASCRIPT</button>
+								<button type="button">APIs</button>
+								<button type="button">JQUERY</button>
+							</div>
+							<div class="skills">
+								<span>
+									<strong>95.6%</strong>
+									<p>TECH SKILLS</p>
+								</span>
+								<span>
+									<strong>95.6%</strong>
+									<p>LIFE SKILLS</p>
+								</span>
+								<span>
+									<strong>INTERM</strong>
+									<p>ENGLISH SKILLS</p>
+								</span>
+							</div>
+						</div>
+						<div>
+							<a href="#">Ver perfil &blacktriangleright;</a>
+						</div>
+					</div>
+					<div class="estudiante">
+						<img src="assets/estudiante.jpg" alt="">
+						<div class="general">
+							<div class="datos">
+								<h2>DIANA NAVARRO</h2>
+								<span>Frontend Developer</span>
+								<button type="button">JAVASCRIPT</button>
+								<button type="button">APIs</button>
+								<button type="button">JQUERY</button>
+							</div>
+							<div class="skills">
+								<span>
+									<strong>95.6%</strong>
+									<p>TECH SKILLS</p>
+								</span>
+								<span>
+									<strong>95.6%</strong>
+									<p>LIFE SKILLS</p>
+								</span>
+								<span>
+									<strong>INTERM</strong>
+									<p>ENGLISH SKILLS</p>
+								</span>
+							</div>
+						</div>
+						<div>
+							<a href="#">Ver perfil &blacktriangleright;</a>
+						</div>
+					</div>
+										<div class="estudiante">
+						<img src="assets/estudiante.jpg" alt="">
+						<div class="general">
+							<div class="datos">
+								<h2>DIANA NAVARRO</h2>
+								<span>Frontend Developer</span>
+								<button type="button">JAVASCRIPT</button>
+								<button type="button">APIs</button>
+								<button type="button">JQUERY</button>
+							</div>
+							<div class="skills">
+								<span>
+									<strong>95.6%</strong>
+									<p>TECH SKILLS</p>
+								</span>
+								<span>
+									<strong>95.6%</strong>
+									<p>LIFE SKILLS</p>
+								</span>
+								<span>
+									<strong>INTERM</strong>
+									<p>ENGLISH SKILLS</p>
+								</span>
+							</div>
+						</div>
+						<div>
+							<a href="#">Ver perfil &blacktriangleright;</a>
+						</div>
+					</div>
+										<div class="estudiante">
+						<img src="assets/estudiante.jpg" alt="">
+						<div class="general">
+							<div class="datos">
+								<h2>DIANA NAVARRO</h2>
+								<span>Frontend Developer</span>
+								<button type="button">JAVASCRIPT</button>
+								<button type="button">APIs</button>
+								<button type="button">JQUERY</button>
+							</div>
+							<div class="skills">
+								<span>
+									<strong>95.6%</strong>
+									<p>TECH SKILLS</p>
+								</span>
+								<span>
+									<strong>95.6%</strong>
+									<p>LIFE SKILLS</p>
+								</span>
+								<span>
+									<strong>INTERM</strong>
+									<p>ENGLISH SKILLS</p>
+								</span>
+							</div>
+						</div>
+						<div>
+							<a href="#">Ver perfil &blacktriangleright;</a>
+						</div>
+					</div>
+										<div class="estudiante">
+						<img src="assets/estudiante.jpg" alt="">
+						<div class="general">
+							<div class="datos">
+								<h2>DIANA NAVARRO</h2>
+								<span>Frontend Developer</span>
+								<button type="button">JAVASCRIPT</button>
+								<button type="button">APIs</button>
+								<button type="button">JQUERY</button>
+							</div>
+							<div class="skills">
+								<span>
+									<strong>95.6%</strong>
+									<p>TECH SKILLS</p>
+								</span>
+								<span>
+									<strong>95.6%</strong>
+									<p>LIFE SKILLS</p>
+								</span>
+								<span>
+									<strong>INTERM</strong>
+									<p>ENGLISH SKILLS</p>
+								</span>
+							</div>
+						</div>
+						<div>
+							<a href="#">Ver perfil &blacktriangleright;</a>
+						</div>
+					</div>
+										<div class="estudiante">
+						<img src="assets/estudiante.jpg" alt="">
+						<div class="general">
+							<div class="datos">
+								<h2>DIANA NAVARRO</h2>
+								<span>Frontend Developer</span>
+								<button type="button">JAVASCRIPT</button>
+								<button type="button">APIs</button>
+								<button type="button">JQUERY</button>
+							</div>
+							<div class="skills">
+								<span>
+									<strong>95.6%</strong>
+									<p>TECH SKILLS</p>
+								</span>
+								<span>
+									<strong>95.6%</strong>
+									<p>LIFE SKILLS</p>
+								</span>
+								<span>
+									<strong>INTERM</strong>
+									<p>ENGLISH SKILLS</p>
+								</span>
+							</div>
+						</div>
+						<div>
+							<a href="#">Ver perfil &blacktriangleright;</a>
+						</div>
+					</div>
+										<div class="estudiante">
+						<img src="assets/estudiante.jpg" alt="">
+						<div class="general">
+							<div class="datos">
+								<h2>DIANA NAVARRO</h2>
+								<span>Frontend Developer</span>
+								<button type="button">JAVASCRIPT</button>
+								<button type="button">APIs</button>
+								<button type="button">JQUERY</button>
+							</div>
+							<div class="skills">
+								<span>
+									<strong>95.6%</strong>
+									<p>TECH SKILLS</p>
+								</span>
+								<span>
+									<strong>95.6%</strong>
+									<p>LIFE SKILLS</p>
+								</span>
+								<span>
+									<strong>INTERM</strong>
+									<p>ENGLISH SKILLS</p>
+								</span>
+							</div>
+						</div>
+						<div>
+							<a href="#">Ver perfil &blacktriangleright;</a>
+						</div>
+					</div>
+										<div class="estudiante">
+						<img src="assets/estudiante.jpg" alt="">
+						<div class="general">
+							<div class="datos">
+								<h2>DIANA NAVARRO</h2>
+								<span>Frontend Developer</span>
+								<button type="button">JAVASCRIPT</button>
+								<button type="button">APIs</button>
+								<button type="button">JQUERY</button>
+							</div>
+							<div class="skills">
+								<span>
+									<strong>95.6%</strong>
+									<p>TECH SKILLS</p>
+								</span>
+								<span>
+									<strong>95.6%</strong>
+									<p>LIFE SKILLS</p>
+								</span>
+								<span>
+									<strong>INTERM</strong>
+									<p>ENGLISH SKILLS</p>
+								</span>
+							</div>
+						</div>
+						<div>
+							<a href="#">Ver perfil &blacktriangleright;</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="teachers" class="contenido">
+				<h2>Sin contenido</h2>
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>
