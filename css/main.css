@@ -183,11 +183,71 @@ select::-ms-expand {
 
 #studentslink, #teacherslink, #overviewlink {
 	text-decoration: none;
-	color: #fff;
+	color: #303030;
+	font-weight: bold;
 	padding: 5px;
+}
+
+#studentslink:hover, #teacherslink:hover, #overviewlink:hover {
+	text-decoration: underline;
+	color: #606060;
 }
 
 #new-result {
 	text-align: right;
 	margin-left: 600px;
 }
+
+/* Cajas */
+
+.grid {
+	width: 32%;
+	height: auto;
+	margin: 5px;
+	background-color: #f7f7f7;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	float: left;
+	text-transform: uppercase;
+}
+
+.box-number, .box-percent {
+	width: 40%;
+	height: 100px;
+	margin: 0 5px 10px 5px;
+	display: inline-block;
+	background-color: #fff;
+	vertical-align: top;
+	text-transform: uppercase;
+}
+
+.box-number p , .box-percent p {
+	font-size: 0.7em;
+	margin: 0;
+	color: #404040;
+}
+
+.box-number h4 , .box-percent h4 {
+	font-size: 1.1em;
+}
+
+.box-number h4 {
+	color: #404040;
+}
+
+.box-percent h4 {
+	color: #68ad1c;
+}
+
+.box-percent .red {
+	color: #ea5151;
+}
+
+.graphic {
+	width: 82%;
+	height: auto;
+	background-color: #fff;
+	margin-left: auto; 
+	margin-right: auto;
+}
+

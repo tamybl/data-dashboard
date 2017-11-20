@@ -109,9 +109,12 @@ function stats () {
 	var promedioSupera = parseInt((totalSupera/data[sede][generationSelected].ratings.length)/100 * 100);
 	// El % que cumple lo objetivos = supera + cumple
 	
-	statsSection.innerHTML = '<p>Dropout = ' + dropout + '% del total</p>'+'<p>El numero de inscritas es: ' + data[sede][generationSelected].students.length + '</p>' + 'El numero de estudiantes que supera el 70% es ' + contAchievement + ', que corresponde a un ' + achievement + '% del total</p>' + detractors + ' ' + cumulativeNps;
-	mainSection.appendChild(statsSection);
+	statsSection.innerHTML = '<div class="grid"><h2>Enrollment</h2><div class="box-number"><h4>' + data[sede][generationSelected].students.length + '</h4><p># Students currently enrolled</p></div><div class="box-percent"><h4 class="red">' + dropout + '%</h4><p>% Dropout</p></div><div class="graphic"><img src="assets/images/bar-graph.png" alt="" /></div></div> <div class="grid"><h2>achievement</h2><div class="box-number"><h4>' + contAchievement + '</h4><p># Students that eet the target</p></div><div class="box-percent"><h4>' + achievement + '%</h4><p>% of total (' + data[sede][generationSelected].students.length + ') </p></div><div class="graphic"><img src="assets/images/graph.png" alt="" /></div></div>';
 
+
+	/*<p>Dropout = ' + dropout + '% del total</p>'+'<p>El numero de inscritas es: ' + data[sede][generationSelected].students.length + '</p>' + 'El numero de estudiantes que supera el 70% es ' + contAchievement + ', que corresponde a un ' + achievement + '% del total</p>' + detractors + ' ' + cumulativeNps;
+	*/
+	mainSection.appendChild(statsSection);
 
 
 	// SECCION ESTUDIANTES
