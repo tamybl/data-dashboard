@@ -1,0 +1,193 @@
+/*general*/
+body{
+	font-family: 'Roboto', sans-serif;
+	font-size: 1em;
+	margin:0 auto;
+	background-color: #E8E9E9;
+	width: 100%;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/*header*/
+nav{
+	height: 80px;
+	background-color: #fff;	
+}
+
+.logo{
+ 	width: 230px;
+ 	height: 70px;
+ 	padding-top: 10px;
+	display: inline-block;
+	margin-left: 500px;
+}	
+
+.logo img{
+ 	width: auto;
+	height: auto;
+	max-height: 100%;
+	max-width: 100%;
+	min-width: 100%;
+	position: relative;
+	
+ }
+
+
+.burger{
+	float: right;
+	padding-right: 60px;
+	padding-top: 30px;
+	height: 30px;
+	width: 30px;
+}
+.fa-bars:before {
+	color: #505050;
+	font-size: 1.5em;
+}
+
+/*seccion welcome yellow*/
+
+.boxYellow{
+	width: auto;
+	height: auto;
+	padding-top: 10px;
+}
+
+.welcome{
+	background-color: #E3AD00;
+	margin-left: auto;
+	margin-right: auto;
+	height:85px;
+	width: 90%;
+}
+
+.welcome h1{
+	font-size: 3em;
+	margin:0;
+	text-align: center;
+	padding-top: 10px;
+}
+
+/*seccion boxwhite*/
+.home{
+	width: auto;
+	height: auto;
+	padding-top: 10px;
+}
+
+.white{
+	background-color: #fff;
+	height: auto;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	-webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px; 
+    overflow: auto;
+}
+
+/*columna lateral*/
+.lateral{
+	height: auto;
+	width: 30%;
+	padding:20px;
+	float: left;
+	padding: 10px;
+}
+
+/*box usuario*/
+.user{
+	background-color: #E8E9E9;
+	-webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px; 
+    padding:10px;
+	text-align: center;
+	margin-bottom:10px;
+}
+
+.user h3, h4, p{
+	text-align: left;
+	margin:0;
+	padding: 5px;
+}
+
+.user .fa-user-circle:before{
+	font-size: 6em;
+	color:#505050;
+}
+
+/*box botones laterales*/
+
+.boxMenu{
+	height: 68px;
+	width: 100%;
+	background-color: #E3AD00;
+	margin-bottom: 5px;
+	padding-left: 20px;
+	padding-top: 20px;
+}	
+
+.boxMenu button{
+	background-color: #E3AD00;
+	border:0;
+	width: 100%
+	height: 150px;
+	font-size: 1.5em;
+}
+
+.boxFilter{
+	float: left;
+	height: auto;
+	width: 70%;
+	padding:10px;
+}
+
+
+/*barras filtros por pais*/
+.filterCountry{
+	width: 100%;
+	height: 150px;
+	color:#fff;
+	padding:20px;
+	margin-bottom: 10px;
+}
+#peru{
+	background-color: #B40050;
+}
+
+.filterCountry div{
+	display: inline-block;
+	vertical-align: text-top;
+	width: 45%;
+	margin:0;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.filterCountry h2{
+	font-size: 3em;
+	margin:0; 
+}
+
+.filterCountry p{
+	text-align: center;
+}
+
+.filterCountry .columnRight{
+	padding-top: 50px;
+}
+
+#mexico{
+	background-color: #00806E;
+}
+
+#chile{
+	background-color: #5238AB;
+}
