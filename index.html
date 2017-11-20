@@ -3,9 +3,46 @@
   <head>
     <meta charset="utf-8">
     <title>Data Dashboard</title>
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-
+    <div class="header" id="headerSection">
+      <div class="logo"><img src="assets/images/logo-laboratoria.svg" alt=""></div>
+      <div class="menu">
+        <ul>
+          <li>Dashboard</li>
+          <li>Config</li>
+          <li>Help</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Contenedor principal -->
+    <div class="main" id="mainSection">
+      <div id="home">
+        <div class="country-pe">
+          <h1>< Perú ></h1>
+            <select id="select-PE" onchange="country(this.value)">
+              <option value="0">Selecciona una Sede</option>
+              <option value="AQP">Arequipa</option>
+              <option value="LIM">Lima</option>
+            </select>
+        </div>
+        <div class="country-cl">
+          <h1>Chile</h1>
+          <select id="select-CL" onchange="country(this.value)">
+              <option value="0">Selecciona una Sede</option>
+              <option value="SCL">Santiago</option>
+            </select>
+        </div>
+        <div class="country-mx">
+          <h1>México</h1>
+          <select id="select-MX" onchange="country(this.value)">
+              <option value="0">Selecciona una Sede</option>
+              <option value="CDMX">Ciudad de México</option>
+            </select>
+        </div>
+      </div>
+    </div>
 		<!-- Base de datos -->
 		<script src="./js/data.js"></script>
 		<!-- Aquí va tus archivos JS -->
