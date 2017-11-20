@@ -4,22 +4,33 @@
     <meta charset="utf-8">
     <title>Data Dashboard</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   </head>
   <body>
     <div class="header" id="headerSection">
       <div class="logo"><img src="assets/images/logo-laboratoria.svg" alt=""></div>
       <div class="menu">
-        <ul>
-          <li><a href="">Dashboard</a></li>
-          <li>Config</li>
-          <li>Help</li>
-        </ul>
-      </div>
+        <i class="fa fa-bars" aria-hidden="true"></i>
     </div>
     <!-- Contenedor principal -->
     <div class="main" id="mainSection">
+      <div class="box-title">
+        <div class="welcome">
+          <h1>Bienvenido al Dashboard</h1>
+        </div>
+        <!-- Aqui ira el menu -->
+      </div>
+      <div class="sidebar">
+        <div class="user">
+          <i class="fa fa-user-circle"></i>
+          <h3>Welcome</h3>
+          <h4>Valentina</h4>
+          <p>En este espacio de trabajo podrás encontrar todos los datos actualizados de nuestras alumnas de Laboratoria.</p>
+        </div>
+      </div>
       <div id="home">
-        <div class="country-pe">
+        <div class="country peru">
           <h1>< Perú ></h1>
             <select id="select-PE" onchange="country(this.value)">
               <option value="0">Selecciona una Sede</option>
@@ -27,15 +38,15 @@
               <option value="LIM">Lima</option>
             </select>
         </div>
-        <div class="country-cl">
-          <h1>Chile</h1>
+        <div class="country chile">
+          <h1>< Chile ></h1>
           <select id="select-CL" onchange="country(this.value)">
               <option value="0">Selecciona una Sede</option>
               <option value="SCL">Santiago</option>
             </select>
         </div>
-        <div class="country-mx">
-          <h1>México</h1>
+        <div class="country mexico">
+          <h1>< México ></h1>
           <select id="select-MX" onchange="country(this.value)">
               <option value="0">Selecciona una Sede</option>
               <option value="CDMX">Ciudad de México</option>

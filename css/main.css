@@ -7,21 +7,24 @@
 body {
 	margin: 0 auto;
 	font-size: 16px;
+	font-family: 'Roboto', sans-serif;
+	background-color: #E8E9E9;
 }
 
 /* Encabezado */ 
 
 .header {
 	width: 100%;
-	height: 150px;
-	background-color: #ccc;
-	text-align: right;
+	height: 80px;
+	background-color: #fff;
 }
 
 .logo {
-	width: 20%;
+	width: 230px;
 	height: auto;
+	padding-top: 10px;
 	display: inline-block;
+	margin-left: 550px;
 }
 
 .logo img {
@@ -30,17 +33,17 @@ body {
 }
 
 .menu {
-	padding: 10px;
-	display: inline-block;
+	width: 30px;
+	height: 30px;
+	padding-right: 60px;
+	padding-top: 30px;
+	float: right;
 }
 
-.menu ul li {
-	list-style: none;
-	padding: 0px 10px;
-	float: left;
-
+.fa-bars:before {
+	color: #505050;
+	font-size: 1.5em;
 }
-
 /* Contenido */
 
 .main {
@@ -49,23 +52,26 @@ body {
 	text-align: center;
 }
 
-.country-cl, .country-pe, .country-mx {
+
+
+.country {
 	width: 28%;
 	height: 200px;
 	display: inline-block;
 }
 
-.country-cl {
-	background-color: #4e79a7;
+.chile {
+	background-color: #5238AB;
 }
 
-.country-pe {
-	background-color: #9c755f;
+.peru {
+	background-color: #B40050;
 }
 
-.country-mx {
-	background-color: #59a14f;
+.mexico {
+	background-color: #00806E;
 }
+
 
 /* Menu de Opciones */
 
