@@ -40,11 +40,13 @@ function stats () {
 	}
 	times++;
 	// 	MENU LOCAL
+	var boxTitle = document.getElementById('box-title');
+	boxTitle.removeChild(document.getElementById('welcome'));
 	var menuGeneration = document.createElement('div');
-	menuGeneration.setAttribute('id', 'localmenu');
-	menuGeneration.setAttribute('class', 'menu-section');
-	menuGeneration.innerHTML = '<a href="#" id="overviewlink">OVERVIEW</a> <a href="#" id="studentslink">STUDENTS</a> <a href="#" id="teacherslink">TEACHERS</a>';
-	headerSection.appendChild(menuGeneration);
+	menuGeneration.setAttribute('id', 'welcome');
+	menuGeneration.setAttribute('class', 'welcome');
+	menuGeneration.innerHTML = '<h1>'+sedeFullname + '</h1> <a href="#" id="overviewlink">OVERVIEW</a> <a href="#" id="studentslink">STUDENTS</a> <a href="#" id="teacherslink">TEACHERS</a>';
+	boxTitle.appendChild(menuGeneration);
 
 	// SELECCION DE GENERACIONES
 	var selectGen = document.createElement('select');
@@ -62,13 +64,13 @@ function stats () {
 		optionGen.appendChild(text);
 		selectGen.appendChild(optionGen);
 	}
-	headerSection.appendChild(selectGen); 
+	menuGeneration.appendChild(selectGen); 
 
 
 	// SECCION ESTADISTICAS 
 	var statsSection = document.createElement('div');
 	statsSection.setAttribute('id', 'stats');
-	statsSection.setAttribute('class', 'stats-section');
+	statsSection.setAttribute('class', 'principal');
 	var contDropout = 0;
 	var contAchievement = 0;
 	for (var k = 0; k < data[sede][generationSelected].students.length; k++) {
@@ -115,7 +117,7 @@ function stats () {
 	// SECCION ESTUDIANTES
 	var studentSection = document.createElement('div');
 	studentSection.setAttribute('id', 'students');
-	studentSection.setAttribute('class', 'students-section');
+	studentSection.setAttribute('class', 'principal');
 	mainSection.appendChild(studentSection);
 	for (var i = 0; i < data[sede][generationSelected].students.length; i++) {
 		studentSection.innerHTML += '<div>Nombre: ' + data[sede][generationSelected].students[i].name + ' foto: ' + '<img src="'+data[sede][generationSelected].students[i].photo+'" alt="'+data[sede][generationSelected].students[i].name+'" />' + '</div>';
@@ -126,7 +128,7 @@ function stats () {
 	// SECCION PROFESORES
 	var teachersSection = document.createElement('div');
 	teachersSection.setAttribute('id', 'teacher');
-	teachersSection.setAttribute('class', 'teacher-section');
+	teachersSection.setAttribute('class', 'principal');
 	for (var i = 0; i < data[sede][generationSelected].ratings.length; i++) {
 		teachersSection.innerHTML += '<p>El profesor Nro ' + [i+1] + ' tuvo un promedio de: ' + data[sede][generationSelected].ratings[i].teacher + '</p>';
 	}
@@ -166,8 +168,6 @@ function newResult(value) {
 	document.getElementById('mainSection').removeChild(document.getElementById('students'));
 	document.getElementById('mainSection').removeChild(document.getElementById('stats'));
 	document.getElementById('mainSection').removeChild(document.getElementById('teacher'));
-	document.getElementById('headerSection').removeChild(document.getElementById('localmenu'));
-	document.getElementById('headerSection').removeChild(document.getElementById('new-result'));
 
 	// Volver a ejecutar la function con generacion seleccionada
 	stats();

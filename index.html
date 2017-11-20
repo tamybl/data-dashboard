@@ -15,42 +15,53 @@
     </div>
     <!-- Contenedor principal -->
     <div class="main" id="mainSection">
-      <div class="box-title">
-        <div class="welcome">
+      <div class="box-title" id="box-title">
+        <div class="welcome" id="welcome">
           <h1>Bienvenido al Dashboard</h1>
         </div>
         <!-- Aqui ira el menu -->
       </div>
-      <div class="sidebar">
-        <div class="user">
-          <i class="fa fa-user-circle"></i>
-          <h3>Welcome</h3>
-          <h4>Valentina</h4>
-          <p>En este espacio de trabajo podrás encontrar todos los datos actualizados de nuestras alumnas de Laboratoria.</p>
+      <div id="home" class="principal">
+        <div class="sidebar">
+          <div class="user">
+            <i class="fa fa-user-circle"></i>
+            <h3>Welcome</h3>
+            <h4>Valentina</h4>
+            <p>En este espacio de trabajo podrás encontrar todos los datos actualizados de nuestras alumnas de Laboratoria.</p>
+          </div>
+          <div class="sidebar-box">
+            <p>Notas</p>
+          </div>
+          <div class="sidebar-box">
+            <p>Inbox</p>
+          </div>
+          <div class="sidebar-box">
+            <p>Datos Generales</p>
+          </div>
         </div>
-      </div>
-      <div id="home">
-        <div class="country peru">
-          <h1>< Perú ></h1>
-            <select id="select-PE" onchange="country(this.value)">
-              <option value="0">Selecciona una Sede</option>
-              <option value="AQP">Arequipa</option>
-              <option value="LIM">Lima</option>
-            </select>
-        </div>
-        <div class="country chile">
-          <h1>< Chile ></h1>
-          <select id="select-CL" onchange="country(this.value)">
-              <option value="0">Selecciona una Sede</option>
-              <option value="SCL">Santiago</option>
-            </select>
-        </div>
-        <div class="country mexico">
-          <h1>< México ></h1>
-          <select id="select-MX" onchange="country(this.value)">
-              <option value="0">Selecciona una Sede</option>
-              <option value="CDMX">Ciudad de México</option>
-            </select>
+        <div>
+          <div class="country peru">
+            <h1>< Perú ></h1>
+              <select class="select-country" onchange="country(this.value)">
+                <option value="0">Selecciona una Sede</option>
+                <option value="AQP">Arequipa</option>
+                <option value="LIM">Lima</option>
+              </select>
+          </div>
+          <div class="country chile">
+            <h1>< Chile ></h1>
+            <select class="select-country" onchange="country(this.value)">
+                <option value="0">Selecciona una Sede</option>
+                <option value="SCL">Santiago</option>
+              </select>
+          </div>
+          <div class="country mexico">
+            <h1>< México ></h1>
+            <select class="select-country" onchange="country(this.value)">
+                <option value="0">Selecciona una Sede</option>
+                <option value="CDMX">Ciudad de México</option>
+              </select>
+          </div>
         </div>
       </div>
     </div>
