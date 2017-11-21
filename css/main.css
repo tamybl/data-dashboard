@@ -218,6 +218,7 @@ select::-ms-expand {
 	width: 98%;
 	height: auto;
 	margin: 10px;
+	padding-bottom: 15px;
 }
 
 .grid-skills {
@@ -234,7 +235,7 @@ select::-ms-expand {
 
 .box-number, .box-percent {
 	width: 40%;
-	height: 100px;
+	height: 125px;
 	margin: 0 5px 10px 5px;
 	display: inline-block;
 	background-color: #fff;
@@ -244,7 +245,6 @@ select::-ms-expand {
 
 .box-number p , .box-percent p {
 	font-size: 0.7em;
-	margin: 0;
 	color: #404040;
 }
 
@@ -275,32 +275,37 @@ select::-ms-expand {
 /* Students Section */
 
 .specialization{
-    width: 25%;
+    width: 30%;
     height: auto;
     background-color: #E8E9E9;
     float: left;
-    margin-right: 5px;
+    margin: 10px;
     padding: 10px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     font-size: 0.8em;
+    text-align: left;
 }
 .specialization form input{
     font-size: 0.8em;
 }
-.columna{
+
+.column {
     float: left;
-    width: 60%;
+    width: 68%;
     height: auto;
+    padding: 5px;
 }
-.student{
+
+.student {
     background-color: #E8E9E9;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
+    margin: 10px;
     padding: 10px;
-    margin-bottom: 10px;
+    text-align: left;
 }
 .photo{
     width: 100px;
@@ -322,7 +327,4 @@ select::-ms-expand {
     vertical-align: top;
     margin: 0;
     padding: 10px;
-}
-.student p, button{
-    margin-left: 400px;
 }
