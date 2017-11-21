@@ -7,6 +7,7 @@ var arrayGen = [];
 var number = '';
 var times = 0;
 var newGen = '';
+var photo = [];
 
 // Funcion retorna value de la opcion y lo almacena como sede
 function country (optionSelected) {
@@ -45,7 +46,7 @@ function stats () {
 	var menuGeneration = document.createElement('div');
 	menuGeneration.setAttribute('id', 'welcome');
 	menuGeneration.setAttribute('class', 'welcome');
-	menuGeneration.innerHTML = '<h1>'+sedeFullname + '</h1> <a href="#" id="overviewlink">OVERVIEW</a> <a href="#" id="studentslink">STUDENTS</a> <a href="#" id="teacherslink">TEACHERS</a>';
+	menuGeneration.innerHTML = '<h1>'+sedeFullname + ' | ' + generationSelected + '</h1> <a href="#" id="overviewlink">OVERVIEW</a> <a href="#" id="studentslink">STUDENTS</a> <a href="#" id="teacherslink">TEACHERS</a>';
 	boxTitle.appendChild(menuGeneration);
 
 	// SELECCION DE GENERACIONES
@@ -73,18 +74,42 @@ function stats () {
 	statsSection.setAttribute('class', 'principal');
 	var contDropout = 0;
 	var contAchievement = 0;
+	//var alumnsActive = 0;
+	var contTech = 0;
+	var contHse = 0;
+	var promTech = [];
+	var promHse = [];
+	var a = 0;
 	for (var k = 0; k < data[sede][generationSelected].students.length; k++) {
 		if(data[sede][generationSelected].students[k].active == false) {
 			contDropout++;
 		}
 		if(data[sede][generationSelected].students[k].active == true) {
-			for (var l = 0; l < data[sede][generationSelected].students[k].sprints.length; l++) {
-				if (data[sede][generationSelected].students[k].sprints[l].score.hse > 840 && data[sede][generationSelected].students[k].sprints[l].score.tech > 1260) {
+			var sumTech = 0;
+			var sumHse = 0;
+			for (var l = 0; l < data[sede][generationSelected].students[k].sprints.length; l++) { // Ciclo suma puntaje total sprints alumna en tech y hse
+				sumTech += data[sede][generationSelected].students[k].sprints[l].score.tech;
+				sumHse += data[sede][generationSelected].students[k].sprints[l].score.hse;
+				
+			}
+			// Se calcula promedio
+			promTech[a] = sumTech/data[sede][generationSelected].students[k].sprints.length;
+			promHse[a] = sumHse/data[sede][generationSelected].students[k].sprints.length;
+			// Se comprueba si alumna comple condiciones promedio
+			if (promHse[a] >= 840 && promTech[a] >= 1260) {
 						contAchievement++; 
 				}
+			if (promTech[a] >= 1260) {
+						contTech++;
+						
+				}
+			if (promHse[a] >= 840) {
+						contHse++;
 			}
-		} 
+			a++;
+		}
 	}
+	console.log(promHse);
 	var dropout = ((contDropout/data[sede][generationSelected].students.length)*100).toFixed(1);
 	var achievement = ((contAchievement/data[sede][generationSelected].students.length)*100).toFixed(1);
 	// Net Promoter Score
@@ -99,7 +124,7 @@ function stats () {
 		totalPromoters += data[sede][generationSelected].ratings[m].nps.promoters;
 		// Supera la meta
 		// * Ver como generar options y desplegar toda la info modificando display
-		/*totalSupera += data[sede][generationSelected].ratings[m].student.supera;
+		/* totalSupera += data[sede][generationSelected].ratings[m].student.supera;
 		totalCumple += data[sede][generationSelected].ratings[m].student.cumple; */
 	}
 	var detractors = ((totalDetractors/data[sede][generationSelected].ratings.length)/100 * 100).toFixed(1); 
@@ -107,13 +132,29 @@ function stats () {
 	var promoters = ((totalPromoters/data[sede][generationSelected].ratings.length)/100 * 100).toFixed(1);
 	var cumulativeNps = promoters - detractors;
 	var promedioSupera = parseInt((totalSupera/data[sede][generationSelected].ratings.length)/100 * 100);
+
+	// Grafico 4 Skills Tech
+	//var supera = ((totalSupera/data[sede][generationSelected.ratings.length]))
 	// El % que cumple lo objetivos = supera + cumple
-	
-	statsSection.innerHTML = '<div class="grid"><h2>Enrollment</h2><div class="box-number"><h4>' + data[sede][generationSelected].students.length + '</h4><p># Students currently enrolled</p></div><div class="box-percent"><h4 class="red">' + dropout + '%</h4><p>% Dropout</p></div><div class="graphic"><img src="assets/images/bar-graph.png" alt="" /></div></div> <div class="grid"><h2>achievement</h2><div class="box-number"><h4>' + contAchievement + '</h4><p># Students that eet the target</p></div><div class="box-percent"><h4>' + achievement + '%</h4><p>% of total (' + data[sede][generationSelected].students.length + ') </p></div><div class="graphic"><img src="assets/images/graph.png" alt="" /></div></div>';
+	var active = (data[sede][generationSelected].students.filter((student)=>{return student.active})).length; 
+	var techSkills = ((contTech/active)*100).toFixed(1);
+	var hseSkills = ((contHse/active)*100).toFixed(1);
 
+	// Grafico Teacher Rating 
+	var sumTeacher = 0;
+	for (var i = 0; i < data[sede][generationSelected].ratings.length; i++) {
+		sumTeacher += data[sede][generationSelected].ratings[i].teacher;
+	}
+	var promTeacher = (sumTeacher/data[sede][generationSelected].ratings.length).toFixed(1);
 
-	/*<p>Dropout = ' + dropout + '% del total</p>'+'<p>El numero de inscritas es: ' + data[sede][generationSelected].students.length + '</p>' + 'El numero de estudiantes que supera el 70% es ' + contAchievement + ', que corresponde a un ' + achievement + '% del total</p>' + detractors + ' ' + cumulativeNps;
-	*/
+	// Grafico Jedi Master Rating
+	var sumJedi = 0;
+	for (var i = 0; i < data[sede][generationSelected].ratings.length; i++) {
+		sumJedi += data[sede][generationSelected].ratings[i].jedi;
+	}
+	var promJedi = (sumJedi/data[sede][generationSelected].ratings.length).toFixed(1);
+
+	statsSection.innerHTML = '<div class="grid"><h2>Enrollment</h2><div class="box-number"><h4>' + data[sede][generationSelected].students.length + '</h4><p># Students currently enrolled</p></div><div class="box-percent"><h4 class="red">' + dropout + '%</h4><p>% Dropout</p></div><div class="graphic"><img src="assets/images/bar-graph.png" alt="" /></div></div>                                                  <div class="grid"><h2>achievement</h2><div class="box-number"><h4>' + contAchievement + '</h4><p># Students that meet the target</p></div><div class="box-percent"><h4>' + achievement + '%</h4><p>% of total (' + data[sede][generationSelected].students.length + ') </p></div><div class="graphic"><img src="assets/images/graph.png" alt="" /></div></div>                                                                   <div class="grid"><h2>Net Promoter score</h2><div class="box-number"><p>' + promoters + '% Promoters</p> <p>' + passive + '% Passive</p> <p>' + detractors + '% Detractors</p></div><div class="box-percent"><h4>' + cumulativeNps + '%</h4><p>% cumulative NPS</p></div><div class="graphic"><img src="assets/images/graph.png" alt="" /></div></div>                                                                   <div class="full"><div class="grid-skills"><h2>Tech Skills</h2><div class="box-number"><h4>' + contTech + '</h4><p># Students that meet the target</p></div><div class="box-percent"><h4>' + techSkills + '%</h4><p>% of total (' + active + ') </p></div> <div class="graphic"><img src="assets/images/rectangular-graphic.png" alt="" /></div></div> <div class="grid-cake"><img src="assets/images/circle-graphic-full.png" alt="" /></div></div>                                                                    <div class="full"><div class="grid-skills"><h2>Hse Skills</h2><div class="box-number"><h4>' + contHse + '</h4><p># Students that meet the target</p></div><div class="box-percent"><h1>' + hseSkills + '%</h><p>% of total (' + active + ') </p></div> <div class="graphic"><img src="assets/images/rectangular-graphic.png" alt="" /></div></div> <div class="grid-cake"><img src="assets/images/circle-graphic-full.png" alt="" /></div></div>                                                         <div class="grid"><h2>student satisfaction</h2><div class="box-number"><h1>' + ' 140 ' + '</h1><p>% Meeting or exceeding expectations (cumulative)</p></div><div class="graphic"><img src="assets/images/bar-graph.png" alt="" /></div></div>                                   <div class="grid"><h2>teacher rating</h2><div class="box-number"><h1>' + promTeacher + '</h1><p>Overall teacher rating (cumulative)</p></div><div class="graphic"><img src="assets/images/bar-graph.png" alt="" /></div></div>                                                  <div class="grid"><h2>Jedi master rating</h2><div class="box-number"><h1>' + promJedi + '</h1><p>% Meeting or exceeding expectations (cumulative)</p></div><div class="graphic"><img src="assets/images/bar-graph.png" alt="" /></div></div>';
 	mainSection.appendChild(statsSection);
 
 
@@ -123,7 +164,7 @@ function stats () {
 	studentSection.setAttribute('class', 'principal');
 	mainSection.appendChild(studentSection);
 	for (var i = 0; i < data[sede][generationSelected].students.length; i++) {
-		studentSection.innerHTML += '<div>Nombre: ' + data[sede][generationSelected].students[i].name + ' foto: ' + '<img src="'+data[sede][generationSelected].students[i].photo+'" alt="'+data[sede][generationSelected].students[i].name+'" />' + '</div>';
+		studentSection.innerHTML += '<div class="student"><div class="photo"><img src="'+data[sede][generationSelected].students[i].photo+'" alt=""></div><h4>'+data[sede][generationSelected].students[i].name+'</h4><p>Especializacion</p><button>Ver Perfil</button></div>';
 	}
 	// Por defecto, seccion de estudiantes esta oculta
 	studentSection.style.display = 'none';
@@ -163,17 +204,30 @@ function stats () {
 
 }
 
-
-
 function newResult(value) {
 	newGen = value;
 	// Eliminar elementos para reiniciar la funcion stats
 	document.getElementById('mainSection').removeChild(document.getElementById('students'));
 	document.getElementById('mainSection').removeChild(document.getElementById('stats'));
 	document.getElementById('mainSection').removeChild(document.getElementById('teacher'));
-
 	// Volver a ejecutar la function con generacion seleccionada
 	stats();
 }
 
+/*function collectionPhoto () {
+	if (sede == "AQP") {
+		if (generationSelected == '2017-1') {
+			photo = []
+		}
+	}
+	if (sede == "LIM") {
+		generationsedeFullname = 'LIMA PERÚ';
+	}
+	if (sede == "SCL") {
+		sedeFullname = 'SANTIAGO DE CHILE';
+	}
+	if (sede == "CDMX") {
+		sedeFullname = 'DISTRITO FEDERAL DE MÉXICO';
+	}
+}*/
 

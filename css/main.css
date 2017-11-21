@@ -119,7 +119,7 @@ body {
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
-	overflow: auto;
+	overflow: hidden;
 
 }
 .country {
@@ -194,21 +194,42 @@ select::-ms-expand {
 }
 
 #new-result {
-	text-align: right;
-	margin-left: 600px;
+	float: right;
+    margin-right: 10px;
 }
 
 /* Cajas */
 
-.grid {
-	width: 32%;
-	height: auto;
-	margin: 5px;
+.grid, .full {
 	background-color: #f7f7f7;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	float: left;
 	text-transform: uppercase;
+}
+
+.grid {
+	width: 32%;
+	min-height: 340px;
+	margin: 8px;
+}
+
+.full {
+	width: 98%;
+	height: auto;
+	margin: 10px;
+}
+
+.grid-skills {
+	width: 60%;
+	float: left;
+}
+
+.grid-cake {
+	width: 40%;
+	height: 300px;
+	float: right;
+	vertical-align: bottom;
 }
 
 .box-number, .box-percent {
@@ -251,3 +272,57 @@ select::-ms-expand {
 	margin-right: auto;
 }
 
+/* Students Section */
+
+.specialization{
+    width: 25%;
+    height: auto;
+    background-color: #E8E9E9;
+    float: left;
+    margin-right: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    font-size: 0.8em;
+}
+.specialization form input{
+    font-size: 0.8em;
+}
+.columna{
+    float: left;
+    width: 60%;
+    height: auto;
+}
+.student{
+    background-color: #E8E9E9;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.photo{
+    width: 100px;
+    height: 100px;
+    clip: rect(5px, 40px, 45px, 5px);
+    display: inline-block;
+    
+    
+}
+.photo img{
+    height: 100px;
+    width: 100px;
+    max-height: 200%;
+    max-width: 200%;
+}
+.student h4{
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 10px;
+}
+.student p, button{
+    margin-left: 400px;
+}
